@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+/* Mac-style thin, floating, translucent scrollbars that don't shift content */
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Standard Firefox & modern Chromium scrollbar properties */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(148, 163, 184, 0.35) transparent;
+  }
+
+  *:hover {
+    scrollbar-color: rgba(100, 116, 139, 0.55) transparent;
+  }
+
+  /* WebKit (Chrome, Safari, Edge) Mac-like overlay scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(148, 163, 184, 0.35);
+    border-radius: 9999px;
+    border: 1px solid transparent;
+    background-clip: padding-box;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(100, 116, 139, 0.6);
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background-color: rgba(71, 85, 105, 0.8);
+  }
+
+  ::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+}
+
+/* Hide scrollbar utility when needed (e.g. horizontal chips) */
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
